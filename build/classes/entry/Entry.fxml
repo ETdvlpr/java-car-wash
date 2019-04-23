@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="entry.EntryController">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="New" />
+            <MenuItem mnemonicParsing="false" text="Open…" />
+            <Menu mnemonicParsing="false" text="Open Recent" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Close" />
+            <MenuItem mnemonicParsing="false" text="Save" />
+            <MenuItem mnemonicParsing="false" text="Save As…" />
+            <MenuItem mnemonicParsing="false" text="Revert" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Preferences…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Undo" />
+            <MenuItem mnemonicParsing="false" text="Redo" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Cut" />
+            <MenuItem mnemonicParsing="false" text="Copy" />
+            <MenuItem mnemonicParsing="false" text="Paste" />
+            <MenuItem mnemonicParsing="false" text="Delete" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Select All" />
+            <MenuItem mnemonicParsing="false" text="Unselect All" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <SplitPane dividerPositions="0.2505567928730512" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <items>
+        <AnchorPane prefHeight="551.0" prefWidth="263.0">
+          <children>
+            <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" minWidth="60.0" prefHeight="27.0" prefWidth="195.0" style="&#10;" text="Today's Activity" textAlignment="CENTER" wrapText="false">
+              <font>
+                <Font size="18.0" fx:id="x1" />
+              </font>
+              <textFill>
+                <Color blue="0.624" green="0.624" red="0.624" fx:id="x2" />
+              </textFill>
+            </Label>
+                  <TableView fx:id="tbl_activity" layoutX="-10.0" layoutY="41.0" minHeight="200.0">
+                    <columns>
+                      <TableColumn fx:id="col_index" prefWidth="47.0" text="#" />
+                      <TableColumn fx:id="col_name" prefWidth="93.0" text="Name" />
+                        <TableColumn fx:id="col_plate" prefWidth="110.0" text="Plate No." />
+                        <TableColumn fx:id="col_start" prefWidth="110.0" text="Start" />
+                    </columns>
+                  </TableView>
+                  <Button fx:id="btn_print" layoutX="115.0" layoutY="512.0" mnemonicParsing="false" text="Print todays' activity" />
+          </children>
+        </AnchorPane>
+        <ScrollPane prefHeight="415.0" prefWidth="670.0">
+          <content>
+            <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="404.0" prefWidth="430.0">
+              <children>
+                <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" prefHeight="27.0" prefWidth="88.0" style="&#10;" text="Add New" textAlignment="CENTER" textFill="$x2" wrapText="false" />
+                        <TextField fx:id="txt_plate" layoutX="14.0" layoutY="94.0" prefHeight="25.0" prefWidth="207.0" promptText="Enter Plate Number" />
+                        <TextField fx:id="txt_phone" layoutX="14.0" layoutY="129.0" prefHeight="25.0" prefWidth="211.0" promptText="Enter Phone Number" />
+                        <CheckBox fx:id="check_office" layoutX="150.0" layoutY="264.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="77.0" text="Office" />
+                        <CheckBox fx:id="check_paid" layoutX="75.0" layoutY="264.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="54.0" text="Paid" />
+                        <TextField fx:id="txt_start" layoutX="57.0" layoutY="336.0" prefHeight="25.0" prefWidth="106.0" text="00:00:00" />
+                        <TextField fx:id="txt_end" layoutX="193.0" layoutY="336.0" prefHeight="25.0" prefWidth="142.0" text="00:00:00" />
+                        <Button fx:id="btn_save" layoutX="321.0" layoutY="371.0" mnemonicParsing="false" onAction="#handleButtonSave" prefHeight="25.0" prefWidth="60.0" text="Save" />
+                        <Button fx:id="btn_cancel" layoutX="254.0" layoutY="371.0" mnemonicParsing="false" text="Chancel " />
+                        <Label fx:id="lbl_price" layoutX="19.0" layoutY="218.0" prefHeight="35.0" prefWidth="261.0" text="Price: 0.00 ETB" />
+                        <Label layoutX="19.0" layoutY="264.0" prefHeight="17.0" prefWidth="50.0" text="Status:" />
+                        <Label layoutX="19.0" layoutY="295.0" text="Remark:" />
+                        <ComboBox fx:id="select_employee" layoutX="14.0" layoutY="56.0" prefHeight="25.0" prefWidth="207.0" promptText="Select Employee" />
+                        <ComboBox fx:id="select_car_type" layoutX="14.0" layoutY="177.0" prefWidth="150.0" promptText="car type" />
+                        <ComboBox fx:id="select_car" layoutX="168.0" layoutY="177.0" prefWidth="150.0" promptText="Car" />
+                        <ComboBox fx:id="select_wash_type" layoutX="324.0" layoutY="177.0" prefWidth="150.0" promptText="Wash Type" />
+                        <Label layoutX="19.0" layoutY="340.0" text="Start At" />
+                        <Label layoutX="168.0" layoutY="340.0" text="End" />
+                        <TextField fx:id="txt_remark" layoutX="76.0" layoutY="291.0" prefHeight="25.0" prefWidth="217.0" promptText="any extra information" />
+              </children>
+            </AnchorPane>
+          </content>
+        </ScrollPane>
+      </items>
+    </SplitPane>
+    <HBox id="HBox" alignment="CENTER_LEFT" spacing="5.0" VBox.vgrow="NEVER">
+      <children>
+        <Label maxHeight="1.7976931348623157E308" maxWidth="-1.0" text="Left status" HBox.hgrow="ALWAYS">
+          <font>
+            <Font size="11.0" fx:id="x3" />
+          </font>
+          <textFill>
+            <Color blue="0.625" green="0.625" red="0.625" fx:id="x4" />
+          </textFill>
+        </Label>
+        <Pane prefHeight="-1.0" prefWidth="-1.0" HBox.hgrow="ALWAYS" />
+        <Label font="$x3" maxWidth="-1.0" text="Right status" textFill="$x4" HBox.hgrow="NEVER" />
+      </children>
+      <padding>
+        <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+      </padding>
+    </HBox>
+  </children>
+</VBox>
